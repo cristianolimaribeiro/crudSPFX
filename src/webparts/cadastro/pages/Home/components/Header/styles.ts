@@ -1,8 +1,8 @@
-import styled from 'styled-components';
+import styled from  'styled-components';
 
-export const Header = styled.div`
+export const Container = styled.div`
 
-    height: 100vh;
+    height: 100%;
 
 `
 export const Content = styled.div`
