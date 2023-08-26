@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "cadastro-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/cadastro/CadastroWebPart.js",
+          "manifest": "./src/webparts/cadastro/CadastroWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "CadastroWebPartStrings": "lib/webparts/cadastro/loc/{locale}.js"
+  }
+}
