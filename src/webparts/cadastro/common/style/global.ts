@@ -4,6 +4,12 @@ import { createGlobalStyle } from 'styled-components';
 export const GlobalStyle = createGlobalStyle`
    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
 
+   :root{
+      --backgroud: #E6E8E6;
+      --shape: #fff;
+      --shape-text: #58396C;
+   }
+
    *{
     margin: 0;
     padding: 0;
@@ -21,7 +27,7 @@ export const GlobalStyle = createGlobalStyle`
    }
 
    body{
-      background: #E6E8E6;
+      background: var(--backgroud);
       -webkit-font-smooth: antialiased;
       font-family: 'Montserrat', sans-serif;
    }

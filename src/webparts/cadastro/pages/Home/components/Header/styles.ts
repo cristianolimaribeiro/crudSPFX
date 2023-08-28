@@ -24,22 +24,22 @@ export const ContentTop = styled.div`
 
     button{
         font-size: 1rem;
-        color: #58396C;
-        background-color: #FFF;
+        color: var(--shape-text);
+        background-color: var(--shape);
         border: 0;
         padding: 0 2rem;
         border-radius: 0.25rem;
         height: 3rem;
-        box-shadow: -2px 3px 38px -10px #58396C;
+        box-shadow: -2px 3px 38px -10px var(--shape-text);
         transition: all .3s ease-in-out;
 
         &:hover{
-            color: #FFF;
-            background-color: #58396C;
+            color: var(--shape);
+            background-color: var(--shape-text);
             box-shadow: -2px 3px 38px -10px #000;
         }
     }
 `
 export const Title = styled.h2`
-    color: #58396c;
+    color: var(--shape-text);
 `

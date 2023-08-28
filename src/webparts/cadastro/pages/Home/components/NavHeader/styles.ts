@@ -15,7 +15,7 @@ export const Container = styled.div`
     justify-content: flex-start;
     gap: 1.25rem;
     font-size: 1rem;
-    color: #FFF;
+    color: var(--shape);
 
     list-style-type: none;
  }
