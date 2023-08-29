@@ -4,35 +4,15 @@ import React, { useEffect, useState } from "react";
 import { FiEdit, FiTrash } from 'react-icons/fi';
 import { Container } from './styles'
 import { getAll } from "../../../../../services/RecordService";
+import { IRecords } from "../../../../../interfaces/IRecords";
 
 export const RecordTable = () => {
-    const [records] = useState([
-        {
-            id: 1,
-            firstName: 'Cristiano',
-            lastName: 'Ribeiro',
-            email: 'cristiano.lima.ribeiro@gmail.com',
-            phone: '24 981481103'
-        },
-        {
-            id: 2,
-            firstName: 'Vanessa',
-            lastName: 'Ribeiro',
-            email: 'vanessatavaresguedes@gmail.com',
-            phone: '24 981481103'
-        },
-        {
-            id: 3,
-            firstName: 'Arthur',
-            lastName: 'Ribeiro',
-            email: 'arthur.ribeiro@gmail.com',
-            phone: '24 981481103'
-        },
-    ])
+    const [records, setRecords ] = useState<IRecords[]>([])
 
     useEffect(() => {
         const fetchData = async () => {
-            await getAll()
+            const result = await getAll()
+            setRecords(result)
         }
 
         fetchData()
