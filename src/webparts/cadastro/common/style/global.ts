@@ -34,6 +34,7 @@ export const GlobalStyle = createGlobalStyle`
 
    button{
       cursor: pointer;
+      border: 0;
    }
    
    .modal-overlay{
@@ -47,15 +48,79 @@ export const GlobalStyle = createGlobalStyle`
       display: flex;
       align-items: center;
       justify-content: center;
-      transition:  all 0.4s ease-in-out;
+      transition:  all 0.5s ease-in-out;
+      
    }
    .modal-content{
       width: 100%;
       max-width: 36rem;
-      background: var(--backgroud);
+      background: var(--shape);
       padding: 3rem;
       position: relative;
       border-radius: 0.25rem;
+      outline: none;
    }
+   .modal-close{
+      background: var(--shape);
+      position: relative;
+      left: 31.25rem;
+      bottom: 2.375rem;
+   }
+
+   .form__field {
+      font-family: inherit;
+      width: 100%;
+      border: none;
+      border-bottom: 2px solid var(--backgroud);
+      outline: 0;
+      font-size: 16px;
+      color: #BEBEBE;
+      padding: 7px 0;
+      background: transparent;
+      transition: border-color 0.5s ease-in-out;
+}
+
+    .form__field::placeholder {
+      color: transparent;
+    }
+
+    .form__field:placeholder-shown ~ .form__label {
+      font-size: 17px;
+      cursor: text;
+      top: 20px;
+
+    }
+
+    .form__label {
+      position: absolute;
+      top: 0;
+      display: block;
+      transition: all 0.5s ease-in-out;
+      font-size: 17px;
+      color: var(--backgroud);
+      pointer-events: none;
+    }
+
+    .form__field:focus {
+      padding-bottom: 6px;
+      font-weight: 700;
+      border-width: 3px;
+      border-image: linear-gradient(to right, rgba(96,21,120,1), rgba(143,47,99,.3));
+      border-image-slice: 1;
+    }
+
+    .form__field:focus ~ .form__label {
+      position: absolute;
+      top: 0;
+      display: block;
+      transition: all 0.5s ease-in-out;
+      font-size: 16px;
+      background-image: linear-gradient(to right, rgba(96,21,120,1), rgba(143,47,99,.6));
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color:#000;
+      font-weight: 700;
+    }
 
 `

@@ -21,6 +21,8 @@ Short summary on functionality and used technologies.
 
 > Any special pre-requisites?
 
+Last Version of Node 16
+
 ## Solution
 
 | Solution    | Author(s)                                               |
