@@ -28,6 +28,7 @@
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-icons": "^4.10.1",
+    "react-modal": "^3.16.1",
     "styled-components": "^6.0.7",
     "tslib": "2.3.1"
   },
@@ -40,6 +41,7 @@
     "@rushstack/eslint-config": "2.5.1",
     "@types/react": "17.0.45",
     "@types/react-dom": "17.0.17",
+    "@types/react-modal": "^3.16.0",
     "@types/webpack-env": "~1.15.2",
     "ajv": "^6.12.5",
     "eslint": "8.7.0",

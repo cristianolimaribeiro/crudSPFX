@@ -26,7 +26,7 @@ export default class CadastroWebPart extends BaseClientSideWebPart<ICadastroWebP
     })
     })
     }
-    
+  
 
   private _isDarkTheme: boolean = false;
   private _environmentMessage: string = '';

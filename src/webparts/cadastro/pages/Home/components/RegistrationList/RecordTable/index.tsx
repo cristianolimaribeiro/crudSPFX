@@ -1,21 +1,19 @@
 /* eslint-disable @typescript-eslint/no-floating-promises */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { FiEdit, FiTrash } from 'react-icons/fi';
 import { Container } from './styles'
-import { getAll } from "../../../../../services/RecordService";
-import { IRecords } from "../../../../../interfaces/IRecords";
+import { useRecords } from "../../../../../hooks/useRecords";
 
 export const RecordTable = () => {
-    const [records, setRecords ] = useState<IRecords[]>([])
+    const { records, getAllRecords } = useRecords()
 
     useEffect(() => {
-        const fetchData = async () => {
-            const result = await getAll()
-            setRecords(result)
+        const fetchRecord = () => {
+            getAllRecords()
         }
 
-        fetchData()
+        fetchRecord()
     }, [])
     return (
         <Container>
@@ -40,8 +38,8 @@ export const RecordTable = () => {
                                     <td>{record.lastName}</td>
                                     <td>{record.email}</td>
                                     <td>{record.phone}</td>
-                                    <td><FiEdit size={20} color="orange"/></td>
-                                    <td><FiTrash size={20} color="red"/></td>
+                                    <td><FiEdit size={20} color="orange" /></td>
+                                    <td><FiTrash size={20} color="red" /></td>
                                 </tr>
                             )
                         })

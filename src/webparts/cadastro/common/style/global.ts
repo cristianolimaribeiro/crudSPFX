@@ -31,6 +31,31 @@ export const GlobalStyle = createGlobalStyle`
       -webkit-font-smooth: antialiased;
       font-family: 'Montserrat', sans-serif;
    }
+
+   button{
+      cursor: pointer;
+   }
    
+   .modal-overlay{
+      background: linear-gradient(41deg, rgba(96,21,120,.9) 0%, rgba(120,34,110,.6) 34%, rgba(143,47,99,.3) 100%);
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition:  all 0.4s ease-in-out;
+   }
+   .modal-content{
+      width: 100%;
+      max-width: 36rem;
+      background: var(--backgroud);
+      padding: 3rem;
+      position: relative;
+      border-radius: 0.25rem;
+   }
 
 `
