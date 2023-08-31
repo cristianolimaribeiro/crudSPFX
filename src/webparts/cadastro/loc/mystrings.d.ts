@@ -18,3 +18,4 @@ declare module 'CadastroWebPartStrings' {
 }
 
 declare module '*.ttf'
+declare module '*.svg'

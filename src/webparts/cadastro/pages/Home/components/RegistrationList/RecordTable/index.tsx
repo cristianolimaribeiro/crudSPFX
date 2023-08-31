@@ -10,7 +10,7 @@ import { useModal } from "../../../../../hooks/useModal";
 
 export const RecordTable = () => {
     const { openEditModal } = useModal()
-    const { records, getAllRecords } = useRecords()
+    const { records, getAllRecords, removeRecord } = useRecords()
 
 
 
@@ -45,12 +45,9 @@ export const RecordTable = () => {
                                     <td>{record.email}</td>
                                     <td>{record.phone}</td>
                                     <td >
-
-
                                         <FiEdit onClick={() => openEditModal(record.id!)} size={20} color="orange" />
-
                                     </td>
-                                    <td><FiTrash size={20} color="red" /></td>
+                                    <td><FiTrash onClick={() => removeRecord(record.id!)} size={20} color="red" /></td>
                                 </tr>
                             )
                         })

@@ -8,7 +8,7 @@ import { useRecords } from "../../../../../hooks/useRecords";
 import { IRecords } from "../../../../../interfaces/IRecords";
 
 export const EditRecordModal = () => {
-    const { records, updateRecord, success, error } = useRecords()
+    const { records,getAllRecords, updateRecord, success, error } = useRecords()
     const { editModalOpen, closeEditModal, selectedRecordId } = useModal()
 
     const [firstName, setFirstName] = useState<string>('')
@@ -17,36 +17,28 @@ export const EditRecordModal = () => {
     const [phone, setPhone] = useState<string>('')
     const [id, setId] = useState<number>(0);
 
-    console.log(records);
-    console.log(selectedRecordId);
+    const getSelectedRecord = () => {
+        const selectedRecord = records.find((record: IRecords) => {
+            return record.id === selectedRecordId
+        })
+        if (selectedRecord?.id !== undefined) {
+            setId(selectedRecord?.id)
+        }
+        if (selectedRecord?.firstName !== undefined) {
+            setFirstName(selectedRecord.firstName)
+        }
+        if (selectedRecord?.lastName !== undefined) {
+            setLastName(selectedRecord.lastName)
+        }
+        if (selectedRecord?.email !== undefined) {
+            setEmail(selectedRecord.email)
+        }
+        if (selectedRecord?.phone !== undefined) {
+            setPhone(selectedRecord.phone)
+        }
+    }
 
-    useEffect(() => {
-        const getSelectedRecord = () => {
-            const selectedRecord = records.find((record: IRecords) => {
-                return record.id === selectedRecordId
-            })
-            if (selectedRecord?.id !== undefined) {
-                setId(selectedRecord?.id)
-            }
-            if (selectedRecord?.firstName !== undefined) {
-                setFirstName(selectedRecord.firstName)
-            }
-            if (selectedRecord?.lastName !== undefined) {
-                setLastName(selectedRecord.lastName)
-            }
-            if (selectedRecord?.email !== undefined) {
-                setEmail(selectedRecord.email)
-            }
-            if (selectedRecord?.phone !== undefined) {
-                setPhone(selectedRecord.phone)
-            }
-        }
-        if (selectedRecordId > 0) {
-            console.log(editModalOpen);
-            console.log(selectedRecordId);
-            getSelectedRecord()
-        }
-    }, [selectedRecordId])
+    
 
     const phoneMask = (value: string) => {
         if (!value) return ""
@@ -61,6 +53,10 @@ export const EditRecordModal = () => {
         input.value = phoneMask(input.value)
     }
 
+    const fetchRecord = () => {
+        getAllRecords()
+    }
+
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault()
 
@@ -72,18 +68,21 @@ export const EditRecordModal = () => {
                 phone
             })
 
-            setFirstName('')
-            setLastName('')
-            setEmail('')
-            setPhone('')
-
             closeEditModal()
             success()
+            setTimeout(() => {
+                fetchRecord()
+            }, 1000);
         } catch {
             error()
         }
     }
-
+    useEffect(() => {
+        
+        if (selectedRecordId > 0) {
+            getSelectedRecord()
+        }
+    }, [selectedRecordId])
 
     return (
         <Modal
@@ -152,3 +151,5 @@ export const EditRecordModal = () => {
         </Modal>
     )
 }
+
+

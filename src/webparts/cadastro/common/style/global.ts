@@ -8,6 +8,8 @@ export const GlobalStyle = createGlobalStyle`
       --backgroud: #E6E8E6;
       --shape: #fff;
       --shape-text: #58396C;
+      --size-button: 40px;
+      --text-input: #BEBEBE;
    }
 
    *{
@@ -74,7 +76,7 @@ export const GlobalStyle = createGlobalStyle`
       border-bottom: 2px solid var(--backgroud);
       outline: 0;
       font-size: 16px;
-      color: #BEBEBE;
+      color: var(--text-input);
       padding: 7px 0;
       background: transparent;
       transition: border-color 0.5s ease-in-out;
@@ -122,5 +124,51 @@ export const GlobalStyle = createGlobalStyle`
       color:#000;
       font-weight: 700;
     }
+    
+    
+.search-container {
+  position: relative;
+  color: white;
+}
 
+.input-search {
+  padding-left: var(--size-button);
+  height: var(--size-button);
+  font-size: 15px;
+  border: none;
+  color: var(--text-input);
+  outline: none;
+  width: var(--size-button);
+  transition: all ease 0.3s;
+  background-color: var(--shape);
+  box-shadow: 1.5px 1.5px 3px var(--shape-text), -1.5px -1.5px 3px rgb(95 94 94 / 25%), inset 0px 0px 0px var(--shape-text), inset 0px -0px 0px #5f5e5e;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.input-search:focus {
+  width: 200px;
+  cursor: text;
+  box-shadow: 0px 0px 0px var(--shape-text), 0px 0px 0px rgb(95 94 94 / 25%), inset 1.5px 1.5px 3px var(--shape-text), inset -1.5px -1.5px 3px #5f5e5e;
+}
+
+.input-search:focus + .icon-search {
+  pointer-events: all;
+  cursor: pointer;
+}
+
+.search-container .icon-search {
+  position: absolute;
+  width: var(--size-button);
+  height: var(--size-button);
+  top: 0;
+  left: 0;
+  padding: 8px;
+  pointer-events: none;
+}
+
+.search-container .icon-search img{
+  width: 100%;
+  height: 100%;
+}
 `

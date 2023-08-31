@@ -11,7 +11,6 @@ export const getAll = async (isAscending = false) => {
         .select("ID, firstName, lastName, email, phone, Created")
         .orderBy("Created", isAscending)
         .get<IRecordRaw[]>()
-    console.log(extracMapItems(result));
 
     return extracMapItems(result)
 
@@ -23,7 +22,6 @@ export const searchItems = async (searchQuery: string) => {
         .items.select("ID", "firstName", "lastName", "email", "phone", "Created")
         .filter(`substringof('${searchQuery}',firstName) or substringof('${searchQuery}',lastName)`)
         .get<IRecordRaw[]>();
-    console.log(extracMapItems(result));
     return extracMapItems(result)
 };
 
@@ -34,7 +32,12 @@ export const addRecord = async (recordInput: IRecordInput) => {
     return data as IRecordRaw
 }
 
-// Rota utilizada para atualizar uma transação
+// método de atualização de um registro
 export const editRecord = async (id: number, recordInput: IRecordInput) => {
     await sp.web.lists.getByTitle(_list).items.getById(id).update(recordInput);
   }
+
+// método de exclusão de um registro 
+export const deleteRecord = async (id: number) => {
+    await sp.web.lists.getByTitle(_list).items.getById(id).delete()
+}
