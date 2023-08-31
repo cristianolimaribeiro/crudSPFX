@@ -116,7 +116,7 @@ export const RecordsProvider = ({ children }: RecordsProviderType) => {
     }
 
     const deleteSuccess = () => {
-        toast.success('Cadastro realizado com sucesso', {
+        toast.success('Cadastro excluído com sucesso', {
             position: "top-right",
             autoClose: 5000,
             hideProgressBar: false,

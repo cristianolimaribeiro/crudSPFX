@@ -18,7 +18,6 @@ export const Header = () => {
 
     const [search, setSearch] = useState<string>('')
 
-    console.log(search);
     
     useEffect(() => {
         const fetchData = () => {

@@ -141,7 +141,7 @@ export const GlobalStyle = createGlobalStyle`
   width: var(--size-button);
   transition: all ease 0.3s;
   background-color: var(--shape);
-  box-shadow: 1.5px 1.5px 3px var(--shape-text), -1.5px -1.5px 3px rgb(95 94 94 / 25%), inset 0px 0px 0px var(--shape-text), inset 0px -0px 0px #5f5e5e;
+  box-shadow: 1.5px 1.5px 3px var(--shape-text), -1.5px -1.5px 3px rgb(95 94 94 / 25%), inset 0px 0px 0px var(--shape-text), inset 0px -0px 0px rgba(143,47,99,.3);
   border-radius: 50px;
   cursor: pointer;
 }
@@ -149,7 +149,7 @@ export const GlobalStyle = createGlobalStyle`
 .input-search:focus {
   width: 200px;
   cursor: text;
-  box-shadow: 0px 0px 0px var(--shape-text), 0px 0px 0px rgb(95 94 94 / 25%), inset 1.5px 1.5px 3px var(--shape-text), inset -1.5px -1.5px 3px #5f5e5e;
+  box-shadow: 0px 0px 0px var(--shape-text), 0px 0px 0px rgb(95 94 94 / 25%), inset 1.5px 1.5px 3px var(--shape-text), inset -1.5px -1.5px 3px rgba(143,47,99,.3);
 }
 
 .input-search:focus + .icon-search {

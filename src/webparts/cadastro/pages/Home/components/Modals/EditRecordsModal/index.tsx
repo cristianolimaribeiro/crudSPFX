@@ -8,7 +8,7 @@ import { useRecords } from "../../../../../hooks/useRecords";
 import { IRecords } from "../../../../../interfaces/IRecords";
 
 export const EditRecordModal = () => {
-    const { records,getAllRecords, updateRecord, success, error } = useRecords()
+    const { records,getAllRecords, updateRecord, editSuccess, error } = useRecords()
     const { editModalOpen, closeEditModal, selectedRecordId } = useModal()
 
     const [firstName, setFirstName] = useState<string>('')
@@ -69,7 +69,7 @@ export const EditRecordModal = () => {
             })
 
             closeEditModal()
-            success()
+            editSuccess()
             setTimeout(() => {
                 fetchRecord()
             }, 1000);
