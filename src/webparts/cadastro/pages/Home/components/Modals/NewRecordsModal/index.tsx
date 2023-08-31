@@ -74,7 +74,7 @@ export const NewRecordModal = () => {
                         placeholder="Nome"
                         value={firstName}
                         onChange={(e) => setFirstName(e.target.value)}
-
+                        required
                     />
                     <label className="form__label">Nome</label>
                 </InputContainer>
@@ -85,6 +85,7 @@ export const NewRecordModal = () => {
                         placeholder="Sobrenome"
                         value={lastName}
                         onChange={(e) => setLastName(e.target.value)}
+                        required
                     />
                     <label className="form__label">Sobrenome</label>
                 </InputContainer>
@@ -95,6 +96,7 @@ export const NewRecordModal = () => {
                         placeholder="Email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
+                        required
                     />
                     <label className="form__label">Email</label>
                 </InputContainer>
@@ -107,6 +109,7 @@ export const NewRecordModal = () => {
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
                         onKeyUp={(event) => handlePhone(event)}
+                        required
                     />
                     <label className="form__label">Telefone</label>
                 </InputContainer>
