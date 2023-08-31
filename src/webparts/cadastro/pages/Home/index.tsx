@@ -3,6 +3,7 @@ import { NavHeader } from "./components/NavHeader";
 import { Header } from "./components/Header";
 import { RegistrationList } from "./components/RegistrationList";
 import { NewRecordModal } from "./components/Modals/NewRecordsModal";
+import { EditRecordModal } from "./components/Modals/EditRecordsModal";
 
 
 export const Home = () => {
@@ -12,6 +13,7 @@ export const Home = () => {
             <Header />
             <RegistrationList />
             <NewRecordModal />
+            <EditRecordModal />
         </>
     )
 }

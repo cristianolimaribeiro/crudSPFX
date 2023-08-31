@@ -1,12 +1,18 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable @typescript-eslint/no-floating-promises */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useEffect } from "react";
 import { FiEdit, FiTrash } from 'react-icons/fi';
 import { Container } from './styles'
 import { useRecords } from "../../../../../hooks/useRecords";
+import { useModal } from "../../../../../hooks/useModal";
+
 
 export const RecordTable = () => {
+    const { openEditModal } = useModal()
     const { records, getAllRecords } = useRecords()
+
+
 
     useEffect(() => {
         const fetchRecord = () => {
@@ -38,7 +44,12 @@ export const RecordTable = () => {
                                     <td>{record.lastName}</td>
                                     <td>{record.email}</td>
                                     <td>{record.phone}</td>
-                                    <td><FiEdit size={20} color="orange" /></td>
+                                    <td >
+
+
+                                        <FiEdit onClick={() => openEditModal(record.id!)} size={20} color="orange" />
+
+                                    </td>
                                     <td><FiTrash size={20} color="red" /></td>
                                 </tr>
                             )

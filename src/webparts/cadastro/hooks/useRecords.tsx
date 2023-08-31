@@ -1,6 +1,6 @@
 import React, { ReactNode, createContext, useContext, useState } from "react";
 import { IRecords } from "../interfaces/IRecords";
-import { addRecord, getAll } from "../services/RecordService";
+import { addRecord, editRecord, getAll } from "../services/RecordService";
 import { IRecordInput } from "../interfaces/IRecordInput";
 import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
@@ -13,6 +13,7 @@ type RecordsContextData = {
     records: IRecords[],
     getAllRecords: (isAscending?: boolean) => void,
     createRecord: (recordInput: IRecordInput) => void,
+    updateRecord:(id: number, recordInput: IRecordInput) => void,
     success: () => void,
     error: () => void,
 }
@@ -38,6 +39,26 @@ export const RecordsProvider = ({ children }: RecordsProviderType) => {
         }
         setRecords([record, ...records])
     }
+    const updateRecord = async (id: number, recordInput: IRecordInput) => {
+        await editRecord(id, recordInput);
+    
+        const newRecords = records.map(record => {
+          if(record.id === id) {
+            const rec: IRecords = {
+                id: id,
+                firstName: record.firstName,
+                lastName: record.lastName,
+                email: record.email,
+                phone: record.phone
+            }
+            return rec;
+          }
+    
+          return record;
+        })
+    
+        setRecords(newRecords);
+      }
 
     const success = () => {
         toast.success('Cadastro realizado com sucesso', {
@@ -65,7 +86,7 @@ export const RecordsProvider = ({ children }: RecordsProviderType) => {
     }
 
     return (
-        <RecordsContext.Provider value={{ records, getAllRecords, createRecord, success, error }}>
+        <RecordsContext.Provider value={{ records, getAllRecords,updateRecord, createRecord, success, error }}>
             {children}
         </RecordsContext.Provider>
     )

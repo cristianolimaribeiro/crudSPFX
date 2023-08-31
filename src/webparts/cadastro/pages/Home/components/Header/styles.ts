@@ -26,7 +26,7 @@ export const ContentTop = styled.div`
         font-size: 1rem;
         color: var(--shape-text);
         background-color: var(--shape);
-        border: 0;
+        border: 1px solid var(--shape-text);
         padding: 0 2rem;
         border-radius: 0.25rem;
         height: 3rem;

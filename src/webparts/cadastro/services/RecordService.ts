@@ -33,3 +33,8 @@ export const addRecord = async (recordInput: IRecordInput) => {
 
     return data as IRecordRaw
 }
+
+// Rota utilizada para atualizar uma transação
+export const editRecord = async (id: number, recordInput: IRecordInput) => {
+    await sp.web.lists.getByTitle(_list).items.getById(id).update(recordInput);
+  }
